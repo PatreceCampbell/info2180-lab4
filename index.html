@@ -10,19 +10,25 @@
 </head>  
 
 <body>
+    <header>
+        <h1>AVENGERS CHARACTER SEARCH</h1>
+    </header>
     <section class="SearchSuperhero">
         <div class="container">
-            <h1>Avengers Character Search</h1>
+            <p>Search by Full Name or Alias.</p>
             <form action="#" method="post">
                 <div class="search-area">
-                    <input type="text" name="text" id="text" placeholder="Enter a Superhero name here...">
+                    <input type="text" name="heroname" id="text" placeholder="e.g. Captain America or Steve Rodgers">
                 </div>
                 <button type="submit" class="btn">Search</button>
             </form>
-            <div class="message"></div>
         </div>
     </section>
-    
+    <section class="ResultDisplay">
+        <h3>RESULT</h3>
+            <hr>
+            <div class="result" id="result"></div>
+    </section>
 </body>
 
 

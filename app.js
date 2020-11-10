@@ -1,5 +1,6 @@
 window.onload = function(){
     var search = document.querySelector("button");
+    var resultArea = document.querySelector(".result")
     //var responsefield = document.getElementById("text");
     search.addEventListener('click', handleClick);
     var httpRequest = new XMLHttpRequest();
@@ -17,10 +18,10 @@ window.onload = function(){
         if (httpRequest.readyState === XMLHttpRequest.DONE){
             if (httpRequest.status === 200){
                 var response = httpRequest.responseText;
-                alert(response);
+                resultArea.innerHTML = response;
             }
             else{
-                alert("Error: This resquest can not be deliver. Please try again.");
+                resultArea.innerHTML = "Error: This resquest can not be deliver. Please try again.";
             }
         }
     }

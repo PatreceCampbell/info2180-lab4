@@ -63,10 +63,14 @@ $superheroes = [
   ], 
 ];
 
+echo $_POST["heroname"]; 
 ?>
+
+
 
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+
