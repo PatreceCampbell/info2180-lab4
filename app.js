@@ -1,16 +1,16 @@
 window.onload = function(){
     var search = document.querySelector("button");
-    var resultArea = document.querySelector(".result")
-    //var responsefield = document.getElementById("text");
+    var resultArea = document.querySelector(".result");
+    var query = document.querySelector("input");
     search.addEventListener('click', handleClick);
     var httpRequest = new XMLHttpRequest();
-    var url = "http://localhost:8080/superheroes.php"
 
     function handleClick(clickEvent){
         clickEvent.preventDefault();
-        console.log("I GOT CLICKED")
+        //console.log("I GOT CLICKED")
+        var url = "superheroes.php?query=" + query.value;
         httpRequest.onreadystatechange = fetchingdata;
-        httpRequest.open('GET', url);
+        httpRequest.open('GET', url, true);
         httpRequest.send();
     }
     

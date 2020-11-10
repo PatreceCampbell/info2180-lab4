@@ -63,14 +63,30 @@ $superheroes = [
   ], 
 ];
 
-echo $_POST["heroname"]; 
-?>
 
+$message="";
+$query=  $_SERVER["query"];
+$query= filter_input(INPUT_GET, "query", FILTER_SANITIZE_STRING);
 
+if (strlen($query)>0){
+    $message="<font color='red'><h3>SUPERHERO NOT FOUND.</h3>";
+    foreach ($superheroes as $superhero){ 
+        if ($superhero['alias'] === $query || $superhero['name'] === $query){
+            $message = "<h3>".$superhero["alias"]."</h3>";
+            $message .= "<h4>"."A.K.A ".$superhero["name"]."</h4>";
+            $message .= "<p>".$superhero["biography"]."</p>";
+        }
+    }    
 
+}
+
+echo $message;
+?> 
+
+<?php if($query===""):?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
-
+<?php endif;?>
